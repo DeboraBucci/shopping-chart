@@ -1,5 +1,6 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
+import Card from "./Card";
 import "./Expenses.css";
 
 const Expenses = ({ expenses }) => {
@@ -9,7 +10,7 @@ const Expenses = ({ expenses }) => {
       <ExpenseItem title={title} key={id} amount={amount} date={date} />
     );
   });
-  return <div className="expenses">{expensesArr}</div>;
+  return <Card className="expenses">{expensesArr}</Card>;
 };
 
 export default Expenses;
