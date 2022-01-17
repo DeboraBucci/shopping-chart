@@ -28,13 +28,17 @@ const ExpenseItem = ({ title: initialTitle, amount, date }) => {
       <ExpenseDate date={date} />
       <div className="expense-item__description">
         {change === false ? (
-          <h2>{title}</h2>
+          <div>
+            <h2>{title}</h2>
+            <button onClick={changeHandler}>
+              <i class="fas fa-edit"></i>
+            </button>
+          </div>
         ) : (
           <ExpensesInput inputHandler={inputHandler} title={title} />
         )}
         <div className="expense-item__price">{`$ ${amount}`}</div>
       </div>
-      <button onClick={changeHandler}>Change Title</button>
     </Card>
   );
 };
