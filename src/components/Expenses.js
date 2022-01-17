@@ -9,7 +9,7 @@ const Expenses = ({ expenses }) => {
       <ExpenseItem title={title} key={id} amount={amount} date={date} />
     );
   });
-  return <div>{expensesArr}</div>;
+  return <div className="expenses">{expensesArr}</div>;
 };
 
 export default Expenses;
