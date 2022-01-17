@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  const [enteredTitle, setTitle] = useState("");
-  const [enteredAmount, setAmount] = useState("");
-  const [enteredDate, setDate] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (e) => {
-    setTitle(e.target.value);
+    setEnteredTitle(e.target.value);
   };
 
   const amountChangeHandler = (e) => {
-    setAmount(e.target.value);
+    setEnteredAmount(e.target.value);
   };
 
   const dateChangeHandler = (e) => {
-    setDate(e.target.value);
+    setEnteredDate(e.target.value);
   };
 
   const submitHandler = (e) => {
@@ -26,6 +26,10 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
+
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -34,6 +38,7 @@ const ExpenseForm = () => {
         <div className="new-expense__control">
           <label>Title</label>
           <input
+            value={enteredTitle}
             onChange={titleChangeHandler}
             type="text"
             placeholder="Medical Bills..."
@@ -42,6 +47,7 @@ const ExpenseForm = () => {
         <div className="new-expense__control">
           <label>Amount</label>
           <input
+            value={enteredAmount}
             onChange={amountChangeHandler}
             type="number"
             min="0.1"
@@ -52,6 +58,7 @@ const ExpenseForm = () => {
         <div className="new-expense__control">
           <label>Date</label>
           <input
+            value={enteredDate}
             onChange={dateChangeHandler}
             type="date"
             min="2019-01-01"
