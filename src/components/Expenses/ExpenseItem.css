@@ -52,3 +52,21 @@
     padding: 0.5rem 1.5rem;
   }
 }
+
+.expense-title__container {
+  display: flex;
+}
+
+.expense-title__btn {
+  background-color: transparent;
+  border: transparent;
+}
+
+.expense-title__container button {
+  cursor: pointer;
+}
+
+.expense-title__container i {
+  font-size: 1.3rem;
+  color: #40005d;
+}

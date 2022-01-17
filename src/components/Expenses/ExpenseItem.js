@@ -28,9 +28,9 @@ const ExpenseItem = ({ title: initialTitle, amount, date }) => {
       <ExpenseDate date={date} />
       <div className="expense-item__description">
         {change === false ? (
-          <div>
+          <div className="expense-title__container">
             <h2>{title}</h2>
-            <button onClick={changeHandler}>
+            <button className="expense-title__btn" onClick={changeHandler}>
               <i class="fas fa-edit"></i>
             </button>
           </div>
