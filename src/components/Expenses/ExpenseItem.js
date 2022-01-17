@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 import "./ExpenseItem.css";
+import ExpensesInput from "./ExpensesInput";
 
 const ExpenseItem = ({ title: initialTitle, amount, date }) => {
   const [title, setTitle] = useState(initialTitle);
@@ -22,8 +23,6 @@ const ExpenseItem = ({ title: initialTitle, amount, date }) => {
     setChange(false);
   };
 
-  console.log(title);
-
   return (
     <Card className="expense-item">
       <ExpenseDate date={date} />
@@ -31,10 +30,7 @@ const ExpenseItem = ({ title: initialTitle, amount, date }) => {
         {change === false ? (
           <h2>{title}</h2>
         ) : (
-          <div>
-            <input placeholder="write here..."></input>
-            <button onClick={inputHandler}>Ok</button>
-          </div>
+          <ExpensesInput inputHandler={inputHandler} title={title} />
         )}
         <div className="expense-item__price">{`$ ${amount}`}</div>
       </div>
