@@ -9,9 +9,6 @@ const Expenses = ({ expenses }) => {
       <ExpenseItem title={title} key={id} amount={amount} date={date} />
     );
   });
-
-  console.log(expensesArr);
-
   return <div>{expensesArr}</div>;
 };
 
