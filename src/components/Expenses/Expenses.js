@@ -33,7 +33,11 @@ const Expenses = ({ expenses }) => {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {expensesArr}
+      {expensesArr.length === 0 ? (
+        <h2 style={{ color: "white" }}>No expenses found.</h2>
+      ) : (
+        expensesArr
+      )}
     </Card>
   );
 };
