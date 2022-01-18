@@ -21,6 +21,13 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    if (
+      expenseData.trim() === "" ||
+      enteredAmount.trim() === "" ||
+      enteredDate.trim() === ""
+    )
+      return;
+
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
@@ -40,6 +47,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
         <div className="new-expense__control">
           <label>Title</label>
           <input
+            required
             value={enteredTitle}
             onChange={titleChangeHandler}
             type="text"
@@ -49,6 +57,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
         <div className="new-expense__control">
           <label>Amount</label>
           <input
+            required
             value={enteredAmount}
             onChange={amountChangeHandler}
             type="number"
@@ -60,6 +69,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
         <div className="new-expense__control">
           <label>Date</label>
           <input
+            required
             value={enteredDate}
             onChange={dateChangeHandler}
             type="date"
