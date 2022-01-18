@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 import "./Expenses.css";
 
 const Expenses = ({ expenses }) => {
@@ -11,33 +12,19 @@ const Expenses = ({ expenses }) => {
     setFilteredYear(selectedYear);
   };
 
-  const expensesPush = (title, id, amount, date) => {
-    expensesArr.push(
-      <ExpenseItem title={title} key={id} amount={amount} date={date} />
-    );
-  };
-
-  const expensesArr = [];
-  expenses.map(({ title, id, amount, date }) => {
-    if (filteredYear === "show-all") {
-      expensesPush(title, id, amount, date);
-    }
-
-    if (date.getFullYear() === Number(filteredYear)) {
-      expensesPush(title, id, amount, date);
-    }
+  const filteredExpenses = expenses.filter(({ date }) => {
+    return date.getFullYear().toString() === filteredYear;
   });
+
   return (
     <Card className="expenses">
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {expensesArr.length === 0 ? (
-        <h2 style={{ color: "white" }}>No expenses found.</h2>
-      ) : (
-        expensesArr
-      )}
+      <ExpensesList
+        expenses={filteredYear === "show-all" ? expenses : filteredExpenses}
+      />
     </Card>
   );
 };
