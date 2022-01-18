@@ -23,7 +23,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
 
     if (
       expenseData.trim() === "" ||
-      enteredAmount.trim() === "" ||
+      +enteredAmount.trim() === "" ||
       enteredDate.trim() === ""
     )
       return;
