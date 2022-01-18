@@ -31,7 +31,7 @@ const ExpenseItem = ({ title: initialTitle, amount, date }) => {
           <div className="expense-title__container">
             <h2>{title}</h2>
             <button className="expense-title__btn" onClick={changeHandler}>
-              <i class="fas fa-edit"></i>
+              <i className="fas fa-edit"></i>
             </button>
           </div>
         ) : (

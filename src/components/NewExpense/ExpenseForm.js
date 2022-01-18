@@ -19,7 +19,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
   };
 
   const submitHandler = (e) => {
-    e.preventDefalt();
+    e.preventDefault();
 
     const expenseData = {
       title: enteredTitle,
