@@ -16,18 +16,17 @@ const Expenses = ({ expenses }) => {
     return date.getFullYear().toString() === filteredYear;
   });
 
+  const finalExpenses =
+    filteredYear === "show-all" ? expenses : filteredExpenses;
+
   return (
     <Card className="expenses">
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      <ExpensesChart
-        expenses={filteredYear === "show-all" ? expenses : filteredExpenses}
-      />
-      <ExpensesList
-        expenses={filteredYear === "show-all" ? expenses : filteredExpenses}
-      />
+      <ExpensesChart expenses={finalExpenses} />
+      <ExpensesList expenses={finalExpenses} />
     </Card>
   );
 };
