@@ -6,7 +6,7 @@ import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 
 const Expenses = ({ expenses }) => {
-  const [filteredYear, setFilteredYear] = useState("2020");
+  const [filteredYear, setFilteredYear] = useState("show-all");
 
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
